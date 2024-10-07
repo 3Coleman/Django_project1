@@ -1,5 +1,15 @@
 {% extends 'blank_layout.html' %}
 {% block content %}
 <h1>list</h1>
+{%for movieobj in movies%}
+<h1>title:{{movieobj.title}}</h1>
+<h2>year:{{movieobj.year}}</h2>
+<p>summary:{{movieobj.summary|default:"there is no data"}}</p>
+{%if movieobj.success%}
+<p>the movie was upto the mark </p>
+{% else %}
+<p>the movie wasn't upto the mark </p>
+{%endif%}
+{%endfor%}
 {% endblock content %}
 
